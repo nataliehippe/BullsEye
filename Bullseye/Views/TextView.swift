@@ -46,12 +46,24 @@ struct SliderText : View{
     }
 }
 
+struct BottomLaybleText : View{
+    var text : String;
+    var body: some View{
+        Text(text)
+            .bold()
+            .font(.caption)
+            .kerning(1.5)
+            .foregroundColor(Color("TextColor"))
+    }
+}
+
 struct TextView_Previews : PreviewProvider{
     static var previews: some View{
         VStack {
             InstructionText(text:"Instruction")
             ScoreText(text: "111")
             SliderText(text: "1")
+            BottomLaybleText(text: "999")
         };
     }
 }
