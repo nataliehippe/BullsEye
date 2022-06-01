@@ -31,7 +31,7 @@ struct RoundedImageViewFilled: View{
             .background(
                 Circle().fill(Color("ButtonsFilledBackgroundColor"))
             )
-            
+        
     }
 }
 
@@ -55,11 +55,28 @@ struct RoundedRectangleView : View{
 
 struct PreviewView : View{
     var body: some View{
-        VStack(spacing:10) {
+        VStack() {
             RoundViews(systemName: "arrow.counterclockwise")
             RoundedImageViewFilled(systemName: "list.dash")
             RoundedRectangleView(text: "999")
+            RounedTextView(text: 1111)
         }
+        
+    }
+}
+
+struct RounedTextView : View{
+    var text : Int
+    var body: some View{
+        Text(String(text))
+            .font(.title)
+            .foregroundColor(Color("TextColor"))
+            .frame(width: Constants.General.roundedRectViewWidth, height: Constants.General.roundedRectViewHeight)
+            .overlay(
+                Circle()
+                    .strokeBorder(
+                        Color("LeaderboardRowColor"),lineWidth: Constants.General.strokeWidth)
+            )
         
     }
 }
