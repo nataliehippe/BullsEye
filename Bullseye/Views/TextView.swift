@@ -14,7 +14,7 @@ struct InstructionText : View{
     var body : some View{
         Text(text.uppercased())
             .bold()
-            .kerning(2.0)
+            .kerning(Constants.General.strokeWidth)
             .multilineTextAlignment(.center)
             .lineSpacing(4)
             .font(.footnote)
