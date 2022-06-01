@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0442A0952847CC5D0017AC73 /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0442A0942847CC5D0017AC73 /* PointsView.swift */; };
 		045B0F412840D35E000DE333 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B0F402840D35E000DE333 /* ShapeView.swift */; };
 		045B0F432840D9D1000DE333 /* RoundViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B0F422840D9D1000DE333 /* RoundViews.swift */; };
 		045B0F452840E805000DE333 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B0F442840E805000DE333 /* BackgroundView.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0442A0942847CC5D0017AC73 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 		045B0F402840D35E000DE333 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
 		045B0F422840D9D1000DE333 /* RoundViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundViews.swift; sourceTree = "<group>"; };
 		045B0F442840E805000DE333 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				045B0F402840D35E000DE333 /* ShapeView.swift */,
 				045B0F422840D9D1000DE333 /* RoundViews.swift */,
 				045B0F442840E805000DE333 /* BackgroundView.swift */,
+				0442A0942847CC5D0017AC73 /* PointsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				045B0F412840D35E000DE333 /* ShapeView.swift in Sources */,
 				04AC7AFB283CFA9E00E79425 /* ContentView.swift in Sources */,
 				049494132840242500B42760 /* TextView.swift in Sources */,
+				0442A0952847CC5D0017AC73 /* PointsView.swift in Sources */,
 				045B0F452840E805000DE333 /* BackgroundView.swift in Sources */,
 				04C3C440283E524400CF359A /* Game.swift in Sources */,
 				04AC7AF9283CFA9E00E79425 /* BullseyeApp.swift in Sources */,

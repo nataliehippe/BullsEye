@@ -19,13 +19,20 @@ struct ContentView: View {
             BackgroundView(game: $game)
             VStack {
                 // InstuctionView
-                InstructionView(game: $game).padding(.bottom,100);
+                InstructionView(game: $game).padding(.bottom,
+                                                     alertIsVisible == true ? 0 :100).transition(.scale);
                 
-                // HitMeButtonView
-                HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game);
+                if alertIsVisible == true{
+                    PointsView(game: $game, alertIsVisible: $alertIsVisible, sliderValue: $sliderValue).transition(.scale);
+                }else{
+                    // HitMeButtonView
+                    HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game);
+                }
             }
-            // SliderView
-            SliderView(sliderValue: $sliderValue);
+            if !alertIsVisible{
+                // SliderView
+                SliderView(sliderValue: $sliderValue).transition(.scale);
+            }
         }
     }
 }
@@ -62,8 +69,9 @@ struct HitMeButtonView : View{
     
     var body: some View{
         Button(action:{
-            print("Pressed Button!");
-            alertIsVisible = true;
+            withAnimation{
+                alertIsVisible = true;
+            }
         }) {
             Text("Hit Me".uppercased())
                 .bold()
@@ -81,21 +89,6 @@ struct HitMeButtonView : View{
             cornerRadius: 21.0
         ).strokeBorder(
             Color.white,lineWidth: 2.0))
-        .alert("Hello there!", isPresented: $alertIsVisible) {
-            
-            Button("Awesome!") {
-                let roundedSliderValue  = Int(sliderValue.rounded());
-                let point = game.points(sliderValue: roundedSliderValue)
-                game.startNewRound(points: point);
-            }
-          } message: {
-            let roundedSliderValue  = Int(sliderValue.rounded());
-            let point = game.points(sliderValue: roundedSliderValue)
-              
-            Text("The slider's value is \(roundedSliderValue) \n " +
-                 "You've scored \(point) in this game"
-            );
-          }
     }
 }
 
@@ -103,7 +96,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
         ContentView().previewLayout(.fixed(width:568,height:320))
-
+        
         ContentView()
             .preferredColorScheme(.dark)
         ContentView()
