@@ -19,15 +19,13 @@ struct ContentView: View {
             BackgroundView(game: $game)
             VStack {
                 // InstuctionView
-                InstructionView(game: $game);
+                InstructionView(game: $game).padding(.bottom,100);
                 
-                // SliderView
-                SliderView(sliderValue: $sliderValue);
-               
                 // HitMeButtonView
                 HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game);
-                
             }
+            // SliderView
+            SliderView(sliderValue: $sliderValue);
         }
     }
 }
@@ -85,12 +83,17 @@ struct HitMeButtonView : View{
             Color.white,lineWidth: 2.0))
         .alert("Hello there!", isPresented: $alertIsVisible) {
             
-            Button("Awesome!") { }
+            Button("Awesome!") {
+                let roundedSliderValue  = Int(sliderValue.rounded());
+                let point = game.points(sliderValue: roundedSliderValue)
+                game.startNewRound(points: point);
+            }
           } message: {
             let roundedSliderValue  = Int(sliderValue.rounded());
+            let point = game.points(sliderValue: roundedSliderValue)
               
             Text("The slider's value is \(roundedSliderValue) \n " +
-                 "You've scored \(self.game.points(sliderValue: roundedSliderValue)) in this game"
+                 "You've scored \(point) in this game"
             );
           }
     }
