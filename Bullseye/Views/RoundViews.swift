@@ -71,7 +71,7 @@ struct RounedTextView : View{
         Text(String(text))
             .font(.title)
             .foregroundColor(Color("TextColor"))
-            .frame(width: Constants.General.roundedRectViewWidth, height: Constants.General.roundedRectViewHeight)
+            .frame(width: Constants.Leaderboard.leaderboardScoreColWidth, height: Constants.Leaderboard.leaderboardScoreColWidth)
             .overlay(
                 Circle()
                     .strokeBorder(

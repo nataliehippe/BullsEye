@@ -105,11 +105,21 @@ struct DateText : View{
     }
 }
 
+struct LeaderboardText : View{
+    var text: String
+    var body: some View{
+        Text(text.uppercased())
+            .kerning(2.0)
+            .fontWeight(.black)
+            .font(.title)
+    }
+}
+
 
 struct TextView_Previews : PreviewProvider{
     
     static var previews: some View{
-        VStack {
+        VStack (spacing:10){
             InstructionText(text:"Instruction")
             ScoreText(text: "111")
             SliderText(text: "1")
@@ -118,6 +128,7 @@ struct TextView_Previews : PreviewProvider{
             ButtonTextView(text: "Start New Round")
             DateText(date: Date())
             LeaderboardScoreText(score: 9999)
+            LeaderboardText(text: "Leaderboard")
         }.padding()
     }
 }
